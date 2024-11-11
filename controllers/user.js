@@ -7,8 +7,8 @@ import ErrorHandler from "../middlewares/error.js";
 
 export const getAllUsers = async (req, res) => {};
 
-export const login = async (req, res) => {
-  try {
+export const login = async (req, res, next) => {
+  try {   
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select("+password");
 
